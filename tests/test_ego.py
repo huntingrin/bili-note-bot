@@ -29,6 +29,12 @@ class ParseOutputTests(unittest.TestCase):
 
 
 class ScriptTests(unittest.TestCase):
+    def setUp(self) -> None:
+        # CI has no ego-browser; these tests exercise script building, not discovery.
+        patcher = mock.patch.object(ego, "ego_bin", return_value="ego-browser")
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
     def test_run_script_executes_ego_with_stdin(self) -> None:
         proc = mock.Mock(returncode=0, stdout='{"ok": 1}', stderr="")
         with mock.patch.object(ego.subprocess, "run", return_value=proc) as run:
@@ -93,6 +99,11 @@ class ScriptTests(unittest.TestCase):
 
 
 class FetchAtTests(unittest.TestCase):
+    def setUp(self) -> None:
+        patcher = mock.patch.object(ego, "ego_bin", return_value="ego-browser")
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
     def test_rows_are_returned(self) -> None:
         proc = mock.Mock(returncode=0, stderr=json.dumps(
             {"ok": True, "count": 1,
