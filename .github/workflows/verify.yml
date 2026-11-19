@@ -1,26 +1,41 @@
-name: verify
+name: ci
 
 on:
+  push:
+    branches: [main]
   pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  verify:
+  test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-python@v5
         with:
-          version: 9
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
-      - run: pnpm install
-      - run: pnpm verify:doctor
-      - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm verify --flow app.boot
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: verify-artifacts
-          path: harness/verify/artifacts
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Install Chromium for card rendering
+        run: python -m playwright install --with-deps chromium
+
+      - name: CJK fonts (card text is Chinese)
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk
+
+      - name: Byte-compile
+        run: python -m compileall .
+
+      - name: Render selftest card
+        run: python main.py --selftest
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -t .
