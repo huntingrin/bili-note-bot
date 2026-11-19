@@ -1,0 +1,16 @@
+{
+  "name": "bilibili_note",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python3 main.py --loop",
+    "verify": "VERIFY_SKIP_HTTP=1 tsx harness/verify/bin/run-flow.ts",
+    "verify:doctor": "bash harness/verify/bin/doctor.sh",
+    "eval:smoke": "tsx harness/evals/run.ts --smoke"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "playwright": "^1.65.2",
+    "tsx": "^4.23.15"
+  }
+}

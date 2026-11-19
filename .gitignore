@@ -1,0 +1,40 @@
+# secrets & local config
+.env
+.env.local
+.env.test
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# runtime artifacts (never commit: DB, cards, downloaded videos, logs)
+data/
+out/
+work/
+logs/
+*.db
+*.db-journal
+*.mp4
+*.png
+*.jpg
+*.jpeg
+*.webm
+
+# node / harness
+node_modules/
+dist/
+build/
+.verify-dev.log
+.verify-dev.pid
+harness/verify/artifacts/*
+!harness/verify/artifacts/.gitkeep
+harness/evals/runs/*
+!harness/evals/runs/.gitkeep
+
+# local agent config (per its own note: do not commit for shared repos)
+.opencode/
+
+# editor / os
+.DS_Store

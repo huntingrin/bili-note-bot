@@ -1,0 +1,64 @@
+{
+  "video": {
+    "bv": "BV1xx411c7mD",
+    "title": "Rick Astley - Never Gonna Give You Up (Official Music Video)",
+    "up_name": "Rick Astley",
+    "duration": 213,
+    "url": "https://www.bilibili.com/video/BV1xx411c7mD"
+  },
+  "summary": {
+    "title": "Rick Astley - Never Gonna Give You Up（官方 MV）",
+    "up_name": "Rick Astley",
+    "duration": 213,
+    "chapters": [
+      {
+        "heading": "开场：酒吧里的独唱",
+        "points": [
+          "黑白酒吧场景，主角独自站在吧台前唱第一段",
+          "镜头以中近景建立 80 年代复古质感"
+        ],
+        "timestamp": 0
+      },
+      {
+        "heading": "副歌：标志性舞步",
+        "points": [
+          "进入副歌后切换到彩色舞台与伴舞",
+          "肩部摆动与转身成为 MV 最出圈的记忆点",
+          "鼓机与合成器贝斯撑起整段律动"
+        ],
+        "timestamp": 46
+      },
+      {
+        "heading": "叙事段落：街头与车内",
+        "points": [
+          "穿插主角在街边与车内的对嘴镜头",
+          "剪辑节奏加快，配合第二段主歌推进情绪"
+        ],
+        "timestamp": 104
+      },
+      {
+        "heading": "收尾：回到酒吧",
+        "points": [
+          "画面回到开场酒吧，形成闭合结构",
+          "最后一遍副歌叠加和声，在长音中结束",
+          "尾帧定格后进入黑场"
+        ],
+        "timestamp": 168
+      }
+    ],
+    "frames": [
+      {"ts": 8, "reason": "开场酒吧独唱"},
+      {"ts": 26, "reason": "第一段主歌近景"},
+      {"ts": 44, "reason": "彩色舞台切入"},
+      {"ts": 62, "reason": "伴舞全景"},
+      {"ts": 79, "reason": "肩部摆动特写"},
+      {"ts": 97, "reason": "副歌收束"},
+      {"ts": 115, "reason": "街头对嘴镜头"},
+      {"ts": 133, "reason": "车内画面"},
+      {"ts": 150, "reason": "回到舞台"},
+      {"ts": 168, "reason": "最后一遍副歌"},
+      {"ts": 186, "reason": "长音收尾"},
+      {"ts": 204, "reason": "尾帧定格"}
+    ]
+  }
+}
